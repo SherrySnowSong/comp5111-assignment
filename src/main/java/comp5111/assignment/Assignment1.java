@@ -150,7 +150,7 @@ public class Assignment1 {
 	    			return i;
         		}, new HashMap<String, ArrayList<Integer>>());
         }
-        jtp.add(new Transform("jtp.instrumeneter", transformer));
+        jtp.add(new Transform("jtp.instrumenter", transformer));
     	soot.Main.main(classNames);
         int total = transformer.total;
         try {
