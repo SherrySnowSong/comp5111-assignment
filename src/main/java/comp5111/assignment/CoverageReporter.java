@@ -39,7 +39,7 @@ public class CoverageReporter {
 				continue;
 			total++;
 			coveragePair.add(i);
-			if (CoverageChecker.coverage.get(index)) {
+			if (CoverageChecker.coverage.size() > index && CoverageChecker.coverage.get(index)) {
 				// covered
 				coveragePair.add(1);
 				covered++;

@@ -38,6 +38,7 @@ public class Assignment1 {
 
         // these args will be passed into soot.
         String[] classNames = Arrays.copyOfRange(args, 1, args.length);
+        
         Options.v().set_soot_classpath(Scene.v().defaultClassPath() + File.pathSeparator + "./bin");
 		Options.v().set_validate(true);
 		Options.v().set_keep_line_number(true);
@@ -53,12 +54,15 @@ public class Assignment1 {
         	System.out.println("Checking instruction coverage...");
         	transformer = new GenericCoverageTransformer<HashMap<String, ArrayList<Integer>>>
         	((t, units, stmt, method, i) -> {
+        		// skip...
         		if (stmt instanceof JIdentityStmt) {
     				return i;
     			}
         		String name = method.getSignature();
     			int index;
     			synchronized (t) {
+    				// this part is to get an ID, and store the ID into a mapping
+    				// so we can check whether the i-th statement in a method has been covered
     				GenericCoverageTransformer<HashMap<String, ArrayList<Integer>>> tt = 
     						(GenericCoverageTransformer<HashMap<String, ArrayList<Integer>>>)t;
     				if (!tt.data.containsKey(name))
@@ -69,6 +73,7 @@ public class Assignment1 {
     				index = t.total++;
     				instMap.set(i, index);
     			};
+    			// simply insert it
     			InvokeExpr expr = Jimple.v().newStaticInvokeExpr(
     					cover.makeRef(), IntConstant.v(index));
     			Stmt incStmt = Jimple.v().newInvokeStmt(expr);
@@ -90,6 +95,7 @@ public class Assignment1 {
 					JIfStmt ifstmt = (JIfStmt)stmt;
 					int index, index2;
 					synchronized (t) {
+						// this part is to get IDs for two branches, and store the ID into a mapping
 						index = t.total;
 						t.total += 2;
 	    				ArrayList<Integer> instMap = tt.data.get(name);
@@ -123,6 +129,7 @@ public class Assignment1 {
 	        			return i;
 	    			int index;
 	    			synchronized (t) {
+	    				// similarly, get an index and store it in a mapping from line number to ID
 	    				GenericCoverageTransformer<HashMap<String, ArrayList<Integer>>> tt = 
 	    						(GenericCoverageTransformer<HashMap<String, ArrayList<Integer>>>)t;
 	    				if (!tt.data.containsKey(name))
@@ -162,7 +169,6 @@ public class Assignment1 {
 		    } catch (IOException e) {
 		    	e.printStackTrace();
 		    }
-		    //CoverageChecker.report(total);
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {

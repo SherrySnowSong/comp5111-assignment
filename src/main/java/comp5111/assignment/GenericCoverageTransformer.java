@@ -10,6 +10,8 @@ import soot.util.*;
 public class GenericCoverageTransformer<T> extends BodyTransformer {
 	@FunctionalInterface
 	public interface Visitor<T> {
+		// actually the method should not be this complicated
+		// but there are limitations in lambda expression for java...
 		int method(GenericCoverageTransformer<T> transformer,
 					Chain units,
 					Stmt stmt,
@@ -38,6 +40,7 @@ public class GenericCoverageTransformer<T> extends BodyTransformer {
 		int i = 0;
 		while (stmts.hasNext()) {
 			Stmt stmt = (Stmt)stmts.next();
+			// this i is just an index within the method
 			i = visitor.method(this, units, stmt, method, i);
 		}
 	}
