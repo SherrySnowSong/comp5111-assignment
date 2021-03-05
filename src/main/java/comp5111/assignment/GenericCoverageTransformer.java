@@ -10,7 +10,11 @@ import soot.util.*;
 public class GenericCoverageTransformer<T> extends BodyTransformer {
 	@FunctionalInterface
 	public interface Visitor<T> {
-		void method(GenericCoverageTransformer<T> transformer, Chain units, Stmt stmt, String classname);
+		int method(GenericCoverageTransformer<T> transformer,
+					Chain units,
+					Stmt stmt,
+					SootMethod method,
+					int index);
 	}
 	
 	static {
@@ -29,12 +33,12 @@ public class GenericCoverageTransformer<T> extends BodyTransformer {
 	@Override
 	protected void internalTransform(Body b, String phaseName, Map<String, String> options) {
 		SootMethod method = b.getMethod();
-		String classname = method.getDeclaringClass().getName();
 		Chain units = b.getUnits();
 		Iterator<Stmt> stmts = units.snapshotIterator();
+		int i = 0;
 		while (stmts.hasNext()) {
 			Stmt stmt = (Stmt)stmts.next();
-			visitor.method(this, units, stmt, classname);
+			i = visitor.method(this, units, stmt, method, i);
 		}
 	}
 
