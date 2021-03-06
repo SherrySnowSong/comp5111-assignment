@@ -2,11 +2,14 @@
 ## Files
 - `reports/*.json`: The coverage reports for randoop0-randoop4, for instruction, branch and line coverage. The format will be explained below.
 - `scripts/`: Currently only scripts for Windows is provided, but should be simple to port to Linux.
-    - `compile.ps1`: powershell script for compiling the instrumenter. Just run it by typing `./scripts/compile.ps1` on Windows.
-    - `run.ps1`: powershell script for generating coverage reports for test suites. The first argument is the test suite name, e.g. `randoop0`.
+    - `compile.ps1`/`compile.sh`: script for compiling the instrumenter. Just run it by typing `./scripts/compile.ps1` on Windows.
+    - `run.ps1`/`compile.sh`: script for generating coverage reports for test suites. The first argument is the test suite name, e.g. `randoop0`.
  	  Run it by typing `./scripts/run.ps1 randoop0` for example.
 - `screenshots/*.png`: Screenshots for task 1.2.
 - `src/` both the instrumenter code and generated test suites.
+
+Note that `compile.sh` should be run before `run.sh`. The scripts are tested on
+Linux, but not on Windows, but hopefully there should not be much problem.
 
 ## Coverage Report
 
@@ -21,7 +24,7 @@ For simplicity, the report is just a JSON file with the following structure:
     "<class>": {
       "covered": <cover count>,
       "total": <total count>,
-      "percentage": <percentage> 
+      "percentage": <percentage>
     }
   }
 }
