@@ -1,0 +1,2 @@
+java -jar ./lib/evosuite-1.1.0.jar -class comp5111.assignment.cut.ToolBox -base_dir ./src/test/evosuite4 -Dsearch_budget=300 -Dstring_length=100 -Dlocal_search_budget=20 -Dlocal_search_rate=1 -criterion branch -projectCP $(pwd)/target/classes
+
