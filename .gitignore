@@ -97,7 +97,6 @@ local.properties
 
 !lib/*.jar
 evosuite-report
-src/test/evosuite*
 src/test/randoop*
 target
 src/test/report
