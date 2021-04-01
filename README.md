@@ -14,7 +14,7 @@ The code supports higher version, but some tests that set Regex flag would fail.
 ## Task 1 Command
 I used the newer version of evosuite for slightly better coverage.
 ```
-java -jar ./lib/evosuite-1.1.0.jar -class comp5111.assignment.cut.ToolBox -base_dir ./src/test/evosuite4 -Dsearch_budget=300 -Dstring_length=100 -Dlocal_search_budget=20 -Dlocal_search_rate=1 -criterion branch -projectCP $(pwd)/target/classes
+java -jar ./lib/evosuite-1.0.6.jar -class comp5111.assignment.cut.ToolBox -base_dir ./src/test/evosuite0 -Dsearch_budget=1200 -Dmax_size=1000 -Dstring_length=50 -criterion branch -projectCP $(pwd)/target/classes
 ```
 
 ## Task 3 Strategy
