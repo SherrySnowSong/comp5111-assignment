@@ -1,0 +1,21 @@
+Line number: 1824
+---------------------------------------------------------------------------------------------
+@@ -1821,7 +1821,7 @@ public class ToolBox {
+             boolean allowSigns = false;
+             boolean foundDigit = false;
+             // deal with any possible sign up front
+-            final int start = chars[0] == '-' || chars[0] == '+' ? 1 : 1;
++            final int start = chars[0] == '-' || chars[0] == '+' ? 1 : 0;
+             if (sz > start + 1 && chars[start] == '0' && !StringTools.contains(str, '.')) { // leading 0, skip if is a
+                 // decimal number
+                 if (chars[start + 1] == 'x' || chars[start + 1] == 'X') { // leading 0x/0X
+---------------------------------------------------------------------------------------------
+Rationale:
+
+This one is also obvious from the test case, no leading sign character so the start should be
+0 instead of 1. Also, it looks weird when we see the two branches are exactly the same.
+
+---------------------------------------------------------------------------------------------
+Suspicous score: 0.1690 (evosuite0)
+---------------------------------------------------------------------------------------------
+Ranking: 39 (evosuite0)

@@ -1,0 +1,26 @@
+Line number: 1602
+---------------------------------------------------------------------------------------------
+Patch:
+@@ -1599,7 +1599,7 @@ public class ToolBox {
+             int firstDiff = -1;
+             for (int stringPos = 0; stringPos < shortestStrLen; stringPos++) {
+                 final char comparisonChar = css[0].charAt(stringPos);
+-                for (int arrayPos = 1; arrayPos < arrayLen; arrayPos++) {
++                for (int arrayPos = 1; arrayPos <= arrayLen; arrayPos++) {
+                     if (css[arrayPos].charAt(stringPos) != comparisonChar) {
+                         firstDiff = stringPos;
+                         break;
+---------------------------------------------------------------------------------------------
+Rationale:
+
+This one is obvious, this is actually the array last index, so <= should be used instead of <.
+
+An alternative patch could be to fix the definition of arrayLen, i.e. line 1570.
+-            final int arrayLen = css.length - 1;
++            final int arrayLen = css.length;
+But the suspicious score of that is lower.
+
+---------------------------------------------------------------------------------------------
+Suspicious Score: 0.3162 (evosuite0)
+---------------------------------------------------------------------------------------------
+Ranking: 6 (evosuite0)

@@ -1,0 +1,25 @@
+Line number: 1428
+---------------------------------------------------------------------------------------------
+Patch:
+@@ -1425,7 +1425,7 @@ public class ToolBox {
+                 final char ch = cs.charAt(i);
+                 for (int j = 0; j < searchLen; j++) {
+                     if (searchChars[j] == ch) {
+-                        if (i < csLast && j < searchLast || Character.isHighSurrogate(ch)) {
++                        if (i < csLast && j < searchLast && Character.isHighSurrogate(ch)) {
+                             // ch is a supplementary character
+                             if (searchChars[j + 1] == cs.charAt(i + 1)) {
+                                 return i;
+
+---------------------------------------------------------------------------------------------
+Rationale:
+
+The if block starting at line 1428 is to check unicode HighSurrogate characters, the first 2
+conditions are to avoid out of bound access. The or condition would invoke the next check
+earlier than intended for ordinary unicode characters and return i.
+
+---------------------------------------------------------------------------------------------
+Suspicious Score: 0.2582 (evosuite0)
+---------------------------------------------------------------------------------------------
+Ranking: 10 (evosuite0)
+
