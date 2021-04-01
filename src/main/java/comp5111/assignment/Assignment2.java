@@ -13,7 +13,7 @@ import java.io.FileWriter;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.nio.file.Files;
-import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.io.IOException;
 
 import org.junit.runner.JUnitCore;
@@ -34,7 +34,7 @@ public class Assignment2 {
         String reportName = args[0];
         String testClassName = args[1];
         String[] classNames = Arrays.copyOfRange(args, 2, args.length);
-        final List<String> lines = Files.readAllLines(Path.of("./src/main/java/comp5111/assignment/cut/ToolBox.java"));
+        final List<String> lines = Files.readAllLines(Paths.get("./src/main/java/comp5111/assignment/cut/ToolBox.java"));
 
         System.out.println("test class: " + testClassName);
         Options.v().set_soot_classpath(
