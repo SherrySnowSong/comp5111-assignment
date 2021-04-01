@@ -3,16 +3,18 @@ package comp5111.assignment;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.assertFalse;
 
 import java.io.File;
+import java.util.Scanner;
 import java.io.FileWriter;
-import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.io.IOException;
 
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Description;
@@ -28,10 +30,13 @@ import soot.jimple.Stmt;
 import soot.options.Options;
 
 public class Assignment2 {
-    public static void main(String[] args) {
-        String testClassName = args[0];
+    public static void main(String[] args) throws IOException {
+        String reportName = args[0];
+        String testClassName = args[1];
+        String[] classNames = Arrays.copyOfRange(args, 2, args.length);
+        final List<String> lines = Files.readAllLines(Path.of("./src/main/java/comp5111/assignment/cut/ToolBox.java"));
+
         System.out.println("test class: " + testClassName);
-        String[] classNames = Arrays.copyOfRange(args, 1, args.length);
         Options.v().set_soot_classpath(
                 Scene.v().defaultClassPath() + File.pathSeparator + "bin");
         Options.v().set_validate(true);
@@ -108,11 +113,16 @@ public class Assignment2 {
                 }
 
                 public void testRunFinished(Result result) {
-                    int failures = result.getFailureCount();
-                    int successes = result.getRunCount() - failures;
-                    stats.report(successes, failures);
-                    System.out.println("successes: " + successes);
-                    System.out.println("failures: " + failures);
+                    try (FileWriter writer = new FileWriter(reportName)) {
+                        int failures = result.getFailureCount();
+                        int successes = result.getRunCount() - failures;
+                        stats.report(successes, failures, lines, writer);
+                        System.out.println("successes: " + successes);
+                        System.out.println("failures: " + failures);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        System.exit(-1);
+                    }
                 }
             });
             junit.run(cls);

@@ -1,23 +1,39 @@
 package comp5111.assignment;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class CoverageStats {
     private HashMap<String, HashMap<Integer, Integer[]>> stats = new HashMap<>();
 
     private class LineInfo {
-        int lineNum;
+        String statement;
         String signature;
-        double suspeciousScore;
+        double suspiciousScore;
         int rank;
 
-        public LineInfo(int lineNum, String signature, double score) {
-            this.lineNum = lineNum;
+        public LineInfo(String statement, String signature, double score) {
+            this.statement = statement;
             this.signature = signature;
-            this.suspeciousScore = score;
+            this.suspiciousScore = score;
             this.rank = 0;
+        }
+
+        public double getSuspiciousScore() {
+            return suspiciousScore;
+        }
+
+        public String getStrRepr() {
+            return signature + statement;
+        }
+
+        public String getCsvLine() {
+            return String.format("\"%s\",\"%s\",%.4f,%d", signature.replace("\"", "\"\""),
+                    statement.replace("\"", "\"\""), suspiciousScore, rank);
         }
     }
 
@@ -46,33 +62,35 @@ public class CoverageStats {
 
     public void calCoverage(boolean success, HashMap<String, ArrayList<Integer>> indexMap) {
         String[] methods = indexMap.keySet().toArray(new String[indexMap.size()]);
-        int successInt = success? 1 : 0;
+        int successInt = success ? 1 : 0;
         for (String method : methods) {
             checkMethod(method, successInt, indexMap);
         }
     }
 
     private double ochiai(int n_ef, int n_es, int n_f, int n_s) {
-        return ((double)n_ef) / Math.sqrt(n_f * (n_ef + n_es));
+        return ((double) n_ef) / Math.sqrt(n_f * (n_ef + n_es));
     }
 
-    public void report(int successes, int failures) {
+    public void report(int successes, int failures, List<String> source, FileWriter writer) throws IOException {
         ArrayList<LineInfo> result = new ArrayList<>();
         for (String method : stats.keySet()) {
             HashMap<Integer, Integer[]> methodStat = stats.get(method);
             for (int n : methodStat.keySet()) {
                 Integer[] counts = methodStat.get(n);
                 double s = ochiai(counts[0], counts[1], failures, successes);
-                result.add(new LineInfo(n, method, s));
+                String statement = source.get(n - 1).trim();
+                result.add(new LineInfo(statement, method, s));
             }
         }
-        result.sort(Comparator.comparingDouble(l -> l.suspeciousScore));
+        result.sort(Comparator.comparingDouble(LineInfo::getSuspiciousScore).thenComparing(LineInfo::getStrRepr));
         double currentScore = 0;
         int length = result.size();
         for (int i = 0; i < length;) {
-            currentScore = result.get(i).suspeciousScore;
+            currentScore = result.get(i).suspiciousScore;
             int j = i + 1;
-            for (; j < length && result.get(j).suspeciousScore == currentScore; j++);
+            for (; j < length && result.get(j).suspiciousScore == currentScore; j++)
+                ;
             int n = length - j;
             int m = length - i;
             int rank = (n + m + 1) / 2;
@@ -80,10 +98,10 @@ public class CoverageStats {
                 result.get(k).rank = rank;
             i = j;
         }
-        for (int i = 0; i < length; i++) {
+        for (int i = length - 1; i >= 0; i--) {
             LineInfo info = result.get(i);
-            String output = String.format("%.4f, %3d, %4d, %s", info.suspeciousScore, info.rank, info.lineNum, info.signature);
-            System.out.println(output);
+            writer.write(info.getCsvLine());
+            writer.write("\n");
         }
     }
 }
