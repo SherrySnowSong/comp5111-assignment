@@ -8,6 +8,44 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class CoverageStats {
+    private int coefficient = 0;
+
+    public CoverageStats(String coefficient) {
+        switch (coefficient) {
+        case "Jaccard":
+            this.coefficient = 0;
+            break;
+        case "Tarantula":
+            this.coefficient = 1;
+            break;
+        case "AMPLE":
+            this.coefficient = 2;
+            break;
+        case "Ochiai":
+            this.coefficient = 3;
+            break;
+        default:
+            System.out.println("Incorrect coefficient calculation method " + coefficient);
+            System.exit(-1);
+        }
+    }
+
+    private double getScore(int n_ef, int n_es, int n_f, int n_s) {
+        switch (coefficient) {
+        case 0:
+            return jaccard(n_ef, n_es, n_f, n_s);
+        case 1:
+            return tarantula(n_ef, n_es, n_f, n_s);
+        case 2:
+            return ample(n_ef, n_es, n_f, n_s);
+        case 3:
+            return ochiai(n_ef, n_es, n_f, n_s);
+        default:
+            // not reachable
+            return 0;
+        }
+    }
+
     private HashMap<String, HashMap<Integer, Integer[]>> stats = new HashMap<>();
 
     private class LineInfo {
@@ -68,8 +106,41 @@ public class CoverageStats {
         }
     }
 
+    // a11 = n_ef
+    // a10 = n_es
+    // a01 = n_f - n_ef
+    // a00 = n_s - n_es
     private double ochiai(int n_ef, int n_es, int n_f, int n_s) {
         return ((double) n_ef) / Math.sqrt(n_f * (n_ef + n_es));
+    }
+
+    private double jaccard(int n_ef, int n_es, int n_f, int n_s) {
+        double a11 = n_ef;
+        double a10 = n_es;
+        double a01 = n_f - n_ef;
+        double a00 = n_s - n_es;
+
+        return a11 / (a11 + a01 + a10);
+    }
+
+    private double tarantula(int n_ef, int n_es, int n_f, int n_s) {
+        double a11 = n_ef;
+        double a10 = n_es;
+        double a01 = n_f - n_ef;
+        double a00 = n_s - n_es;
+
+        double x = a11 / (a11 + a01);
+        double y = a10 / (a10 + a00);
+        return x / (x + y);
+    }
+
+    private double ample(int n_ef, int n_es, int n_f, int n_s) {
+        double a11 = n_ef;
+        double a10 = n_es;
+        double a01 = n_f - n_ef;
+        double a00 = n_s - n_es;
+
+        return Math.abs(a11 / (a01 + a11) - a10 / (a00 + a10));
     }
 
     public void report(int successes, int failures, List<String> source, FileWriter writer) throws IOException {
@@ -78,7 +149,7 @@ public class CoverageStats {
             HashMap<Integer, Integer[]> methodStat = stats.get(method);
             for (int n : methodStat.keySet()) {
                 Integer[] counts = methodStat.get(n);
-                double s = ochiai(counts[0], counts[1], failures, successes);
+                double s = getScore(counts[0], counts[1], failures, successes);
                 String statement = source.get(n - 1).trim();
                 result.add(new LineInfo(statement, method, s));
             }

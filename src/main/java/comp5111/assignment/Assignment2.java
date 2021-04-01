@@ -5,10 +5,7 @@ import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertFalse;
-
 import java.io.File;
-import java.util.Scanner;
 import java.io.FileWriter;
 import java.net.URL;
 import java.net.URLClassLoader;
@@ -32,8 +29,9 @@ import soot.options.Options;
 public class Assignment2 {
     public static void main(String[] args) throws IOException {
         String reportName = args[0];
-        String testClassName = args[1];
-        String[] classNames = Arrays.copyOfRange(args, 2, args.length);
+        String coefficientMethod = args[1];
+        String testClassName = args[2];
+        String[] classNames = Arrays.copyOfRange(args, 3, args.length);
         final List<String> lines = Files.readAllLines(Paths.get("./src/main/java/comp5111/assignment/cut/ToolBox.java"));
 
         System.out.println("test class: " + testClassName);
@@ -84,7 +82,7 @@ public class Assignment2 {
             // Create a new class loader with the directory
             ClassLoader cl = new URLClassLoader(urls);
             Class<?> cls = cl.loadClass(testClassName);
-            CoverageStats stats = new CoverageStats();
+            CoverageStats stats = new CoverageStats(coefficientMethod);
             JUnitCore junit = new JUnitCore();
             junit.addListener(new RunListener() {
                 public void testAssumptionFailure(Failure failure) {
