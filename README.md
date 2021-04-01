@@ -11,6 +11,12 @@ And it should run automatically.
 Note that Java 8 should be used.
 The code supports higher version, but some tests that set Regex flag would fail.
 
+## Task 1 Command
+I used the newer version of evosuite for slightly better coverage.
+```
+java -jar ./lib/evosuite-1.1.0.jar -class comp5111.assignment.cut.ToolBox -base_dir ./src/test/evosuite4 -Dsearch_budget=300 -Dstring_length=100 -Dlocal_search_budget=20 -Dlocal_search_rate=1 -criterion branch -projectCP $(pwd)/target/classes
+```
+
 ## Task 3 Strategy
 We consider the family of inputs that have different output
 when the faults are present and when they are fixed.
