@@ -1,7 +1,7 @@
 CLASSES="comp5111.assignment.cut.ToolBox comp5111.assignment.cut.ToolBox\\\$ArrayTools comp5111.assignment.cut.ToolBox\\\$CharSequenceTools comp5111.assignment.cut.ToolBox\\\$CharTools comp5111.assignment.cut.ToolBox\\\$LocaleTools comp5111.assignment.cut.ToolBox\\\$RegExTools comp5111.assignment.cut.ToolBox\\\$StringTools"
 
-BUILD_CMD="javac -cp \"./lib/junit-4.12.jar:./lib/evosuite-standalone-runtime-1.1.0.jar:bin\" -d ./target/test-classes/"
-RUN_CMD="java -classpath \"./target/classes:./lib/evosuite-standalone-runtime-1.1.0.jar:./lib/junit-4.12.jar:./lib/hamcrest-core-1.3.jar:./lib/soot-4.2.1-jar-with-dependencies.jar\" comp5111.assignment.Assignment2"
+BUILD_CMD="javac -cp \"./lib/junit-4.12.jar:./lib/evosuite-standalone-runtime-1.0.6.jar:bin\" -d ./target/test-classes/"
+RUN_CMD="java -classpath \"./target/classes:./lib/evosuite-standalone-runtime-1.0.6.jar:./lib/junit-4.12.jar:./lib/hamcrest-core-1.3.jar:./lib/soot-4.2.1-jar-with-dependencies.jar\" comp5111.assignment.Assignment2"
 
 function get_report() {
     rm -r target/test-classes
