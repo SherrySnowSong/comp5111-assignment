@@ -1,74 +1,74 @@
 "<comp5111.assignment.cut.ToolBox$StringTools: int indexOfDifference(java.lang.CharSequence[])>","return firstDiff;",1.0000,2
 "<comp5111.assignment.cut.ToolBox$StringTools: int indexOfDifference(java.lang.CharSequence[])>","if (css[arrayPos].charAt(stringPos) != comparisonChar) {",1.0000,2
 "<comp5111.assignment.cut.ToolBox$ArrayTools: void <clinit>()>","public static final char[] EMPTY_CHAR_ARRAY = new char[0];",1.0000,2
-"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfDifference(java.lang.CharSequence[])>","int firstDiff = -1;",0.9897,6
-"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfDifference(java.lang.CharSequence[])>","if (firstDiff == -1 && shortestStrLen != longestStrLen) {",0.9897,6
-"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfDifference(java.lang.CharSequence[])>","if (firstDiff != -1) {",0.9897,6
-"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfDifference(java.lang.CharSequence[])>","for (int stringPos = 0; stringPos < shortestStrLen; stringPos++) {",0.9897,6
-"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfDifference(java.lang.CharSequence[])>","for (int arrayPos = 1; arrayPos < arrayLen; arrayPos++) {",0.9897,6
-"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfDifference(java.lang.CharSequence[])>","final char comparisonChar = css[0].charAt(stringPos);",0.9897,6
-"<comp5111.assignment.cut.ToolBox$StringTools: java.lang.String getCommonPrefix(java.lang.String[])>","} else if (smallestIndexOfDiff == 0) {",0.9877,12
-"<comp5111.assignment.cut.ToolBox$StringTools: java.lang.String getCommonPrefix(java.lang.String[])>","return strs[0].substring(0, smallestIndexOfDiff);",0.9877,12
-"<comp5111.assignment.cut.ToolBox$StringTools: java.lang.String getCommonPrefix(java.lang.String[])>","if (smallestIndexOfDiff == INDEX_NOT_FOUND) {",0.9877,12
-"<comp5111.assignment.cut.ToolBox$StringTools: java.lang.String getCommonPrefix(java.lang.String[])>","if (ArrayTools.isEmpty(strs)) {",0.9877,12
-"<comp5111.assignment.cut.ToolBox$StringTools: java.lang.String getCommonPrefix(java.lang.String[])>","final int smallestIndexOfDiff = indexOfDifference(strs);",0.9877,12
-"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfDifference(java.lang.CharSequence[])>","return shortestStrLen;",0.9877,12
-"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfDifference(java.lang.CharSequence[])>","shortestStrLen = Math.min(cs.length(), shortestStrLen);",0.9797,22
-"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfDifference(java.lang.CharSequence[])>","longestStrLen = Math.max(cs.length(), longestStrLen);",0.9797,22
-"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfDifference(java.lang.CharSequence[])>","int shortestStrLen = Integer.MAX_VALUE;",0.9797,22
-"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfDifference(java.lang.CharSequence[])>","int longestStrLen = 0;",0.9797,22
-"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfDifference(java.lang.CharSequence[])>","if (shortestStrLen == 0) {",0.9797,22
-"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfDifference(java.lang.CharSequence[])>","if (cs == null) {",0.9797,22
-"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfDifference(java.lang.CharSequence[])>","if (allStringsNull || longestStrLen == 0 && !anyStringNull) {",0.9797,22
-"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfDifference(java.lang.CharSequence[])>","for (final CharSequence cs : css) {",0.9797,22
-"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfDifference(java.lang.CharSequence[])>","final int arrayLen = css.length - 1;",0.9797,22
-"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfDifference(java.lang.CharSequence[])>","boolean anyStringNull = false;",0.9797,22
-"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfDifference(java.lang.CharSequence[])>","boolean allStringsNull = true;",0.9797,22
-"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfDifference(java.lang.CharSequence[])>","allStringsNull = false;",0.9797,22
-"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfAny(java.lang.CharSequence,char[])>","return i;",0.9797,22
-"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfAny(java.lang.CharSequence,char[])>","if (searchChars[j + 1] == cs.charAt(i + 1)) {",0.9772,29
-"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfAny(java.lang.CharSequence,char[])>","if (i < csLast && j < searchLast || Character.isHighSurrogate(ch)) {",0.9698,30
-"<comp5111.assignment.cut.ToolBox$StringTools: boolean isCreatable(java.lang.String)>","return !allowSigns && foundDigit;",0.9640,31
-"<comp5111.assignment.cut.ToolBox$StringTools: boolean isCreatable(java.lang.String)>","if (i < chars.length) {",0.9640,31
-"<comp5111.assignment.cut.ToolBox$StringTools: boolean isCreatable(java.lang.String)>","while (i < sz || i < sz + 1 && allowSigns && !foundDigit) {",0.9516,38
-"<comp5111.assignment.cut.ToolBox$StringTools: boolean isCreatable(java.lang.String)>","sz--; // don't want to loop to the last char, check it afterwords",0.9516,38
-"<comp5111.assignment.cut.ToolBox$StringTools: boolean isCreatable(java.lang.String)>","int sz = chars.length;",0.9516,38
-"<comp5111.assignment.cut.ToolBox$StringTools: boolean isCreatable(java.lang.String)>","int i = start;",0.9516,38
-"<comp5111.assignment.cut.ToolBox$StringTools: boolean isCreatable(java.lang.String)>","if (sz > start + 1 && chars[start] == '0' && !StringTools.contains(str, '.')) { // leading 0, skip if is a",0.9516,38
-"<comp5111.assignment.cut.ToolBox$StringTools: boolean isCreatable(java.lang.String)>","final int start = chars[0] == '-' || chars[0] == '+' ? 1 : 1;",0.9516,38
-"<comp5111.assignment.cut.ToolBox$StringTools: boolean isCreatable(java.lang.String)>","final char[] chars = str.toCharArray();",0.9516,38
-"<comp5111.assignment.cut.ToolBox$StringTools: boolean isCreatable(java.lang.String)>","boolean hasExp = false;",0.9516,38
-"<comp5111.assignment.cut.ToolBox$StringTools: boolean isCreatable(java.lang.String)>","boolean hasDecPoint = false;",0.9516,38
-"<comp5111.assignment.cut.ToolBox$StringTools: boolean isCreatable(java.lang.String)>","boolean foundDigit = false;",0.9516,38
-"<comp5111.assignment.cut.ToolBox$StringTools: boolean isCreatable(java.lang.String)>","boolean allowSigns = false;",0.9516,38
-"<comp5111.assignment.cut.ToolBox$StringTools: boolean isCreatable(java.lang.String)>","if (StringTools.isEmpty(str)) {",0.9465,44
-"<comp5111.assignment.cut.ToolBox$StringTools: boolean isCreatable(java.lang.String)>","} else if (chars[i] == 'e' || chars[i] == 'E') {",0.9415,47
-"<comp5111.assignment.cut.ToolBox$StringTools: boolean isCreatable(java.lang.String)>","} else if (chars[i] == '.') {",0.9415,47
-"<comp5111.assignment.cut.ToolBox$StringTools: boolean isCreatable(java.lang.String)>","} else if (chars[i] == '+' || chars[i] == '-') {",0.9415,47
-"<comp5111.assignment.cut.ToolBox$StringTools: boolean isCreatable(java.lang.String)>","return false;",0.9415,47
-"<comp5111.assignment.cut.ToolBox$StringTools: boolean isCreatable(java.lang.String)>","if (chars[i] >= '0' && chars[i] <= '9') {",0.9415,47
-"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfDifference(java.lang.CharSequence[])>","if (ArrayTools.getLength(css) <= 1) {",0.9147,50
-"<comp5111.assignment.cut.ToolBox$ArrayTools: boolean isEmpty(java.lang.Object[])>","return getLength(array) == 0;",0.9095,51
-"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfAny(java.lang.CharSequence,char[])>","if (searchChars[j] == ch) {",0.8773,55
-"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfAny(java.lang.CharSequence,char[])>","for (int j = 0; j < searchLen; j++) {",0.8773,55
-"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfAny(java.lang.CharSequence,char[])>","for (int i = 0; i < csLen; i++) {",0.8773,55
-"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfAny(java.lang.CharSequence,char[])>","final int searchLen = searchChars.length;",0.8773,55
-"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfAny(java.lang.CharSequence,char[])>","final int searchLast = searchLen - 1;",0.8773,55
-"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfAny(java.lang.CharSequence,char[])>","final int csLen = cs.length();",0.8773,55
-"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfAny(java.lang.CharSequence,char[])>","final int csLast = csLen - 1;",0.8773,55
-"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfAny(java.lang.CharSequence,char[])>","final char ch = cs.charAt(i);",0.8773,55
-"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfAny(java.lang.CharSequence,char[])>","return i;",0.8428,60
-"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfAny(java.lang.CharSequence,char[])>","if (isEmpty(cs) || ArrayTools.isEmpty(searchChars)) {",0.8319,61
-"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfAny(java.lang.CharSequence,char[])>","return INDEX_NOT_FOUND;",0.8109,62
-"<comp5111.assignment.cut.ToolBox$ArrayTools: boolean isEmpty(char[])>","return getLength(array) == 0;",0.7408,63
-"<comp5111.assignment.cut.ToolBox$StringTools: boolean isEmpty(java.lang.CharSequence)>","return cs == null || cs.length() == 0;",0.7113,64
-"<comp5111.assignment.cut.ToolBox$ArrayTools: int getLength(java.lang.Object)>","return Array.getLength(array);",0.7010,65
-"<comp5111.assignment.cut.ToolBox$ArrayTools: int getLength(java.lang.Object)>","if (array == null) {",0.6882,66
-"<comp5111.assignment.cut.ToolBox$CharSequenceTools: char[] toCharArray(java.lang.CharSequence)>","return ((String) source).toCharArray();",0.3821,67
-"<comp5111.assignment.cut.ToolBox$CharSequenceTools: char[] toCharArray(java.lang.CharSequence)>","if (source instanceof String) {",0.3821,67
-"<comp5111.assignment.cut.ToolBox$CharSequenceTools: char[] toCharArray(java.lang.CharSequence)>","if (len == 0) {",0.3567,69
-"<comp5111.assignment.cut.ToolBox$CharSequenceTools: char[] toCharArray(java.lang.CharSequence)>","final int len = StringTools.length(source);",0.3567,69
-"<comp5111.assignment.cut.ToolBox$StringTools: int length(java.lang.CharSequence)>","return cs == null ? 0 : cs.length();",0.2867,71
+"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfDifference(java.lang.CharSequence[])>","int firstDiff = -1;",0.9901,6
+"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfDifference(java.lang.CharSequence[])>","if (firstDiff == -1 && shortestStrLen != longestStrLen) {",0.9901,6
+"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfDifference(java.lang.CharSequence[])>","if (firstDiff != -1) {",0.9901,6
+"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfDifference(java.lang.CharSequence[])>","for (int stringPos = 0; stringPos < shortestStrLen; stringPos++) {",0.9901,6
+"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfDifference(java.lang.CharSequence[])>","for (int arrayPos = 1; arrayPos < arrayLen; arrayPos++) {",0.9901,6
+"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfDifference(java.lang.CharSequence[])>","final char comparisonChar = css[0].charAt(stringPos);",0.9901,6
+"<comp5111.assignment.cut.ToolBox$StringTools: java.lang.String getCommonPrefix(java.lang.String[])>","} else if (smallestIndexOfDiff == 0) {",0.9882,12
+"<comp5111.assignment.cut.ToolBox$StringTools: java.lang.String getCommonPrefix(java.lang.String[])>","return strs[0].substring(0, smallestIndexOfDiff);",0.9882,12
+"<comp5111.assignment.cut.ToolBox$StringTools: java.lang.String getCommonPrefix(java.lang.String[])>","if (smallestIndexOfDiff == INDEX_NOT_FOUND) {",0.9882,12
+"<comp5111.assignment.cut.ToolBox$StringTools: java.lang.String getCommonPrefix(java.lang.String[])>","if (ArrayTools.isEmpty(strs)) {",0.9882,12
+"<comp5111.assignment.cut.ToolBox$StringTools: java.lang.String getCommonPrefix(java.lang.String[])>","final int smallestIndexOfDiff = indexOfDifference(strs);",0.9882,12
+"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfDifference(java.lang.CharSequence[])>","return shortestStrLen;",0.9882,12
+"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfDifference(java.lang.CharSequence[])>","shortestStrLen = Math.min(cs.length(), shortestStrLen);",0.9805,22
+"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfDifference(java.lang.CharSequence[])>","longestStrLen = Math.max(cs.length(), longestStrLen);",0.9805,22
+"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfDifference(java.lang.CharSequence[])>","int shortestStrLen = Integer.MAX_VALUE;",0.9805,22
+"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfDifference(java.lang.CharSequence[])>","int longestStrLen = 0;",0.9805,22
+"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfDifference(java.lang.CharSequence[])>","if (shortestStrLen == 0) {",0.9805,22
+"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfDifference(java.lang.CharSequence[])>","if (cs == null) {",0.9805,22
+"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfDifference(java.lang.CharSequence[])>","if (allStringsNull || longestStrLen == 0 && !anyStringNull) {",0.9805,22
+"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfDifference(java.lang.CharSequence[])>","for (final CharSequence cs : css) {",0.9805,22
+"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfDifference(java.lang.CharSequence[])>","final int arrayLen = css.length - 1;",0.9805,22
+"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfDifference(java.lang.CharSequence[])>","boolean anyStringNull = false;",0.9805,22
+"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfDifference(java.lang.CharSequence[])>","boolean allStringsNull = true;",0.9805,22
+"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfDifference(java.lang.CharSequence[])>","allStringsNull = false;",0.9805,22
+"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfAny(java.lang.CharSequence,char[])>","return i;",0.9805,22
+"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfAny(java.lang.CharSequence,char[])>","if (searchChars[j + 1] == cs.charAt(i + 1)) {",0.9781,29
+"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfAny(java.lang.CharSequence,char[])>","if (i < csLast && j < searchLast || Character.isHighSurrogate(ch)) {",0.9710,30
+"<comp5111.assignment.cut.ToolBox$StringTools: boolean isCreatable(java.lang.String)>","return !allowSigns && foundDigit;",0.9654,31
+"<comp5111.assignment.cut.ToolBox$StringTools: boolean isCreatable(java.lang.String)>","if (i < chars.length) {",0.9654,31
+"<comp5111.assignment.cut.ToolBox$StringTools: boolean isCreatable(java.lang.String)>","while (i < sz || i < sz + 1 && allowSigns && !foundDigit) {",0.9490,38
+"<comp5111.assignment.cut.ToolBox$StringTools: boolean isCreatable(java.lang.String)>","sz--; // don't want to loop to the last char, check it afterwords",0.9490,38
+"<comp5111.assignment.cut.ToolBox$StringTools: boolean isCreatable(java.lang.String)>","int sz = chars.length;",0.9490,38
+"<comp5111.assignment.cut.ToolBox$StringTools: boolean isCreatable(java.lang.String)>","int i = start;",0.9490,38
+"<comp5111.assignment.cut.ToolBox$StringTools: boolean isCreatable(java.lang.String)>","if (sz > start + 1 && chars[start] == '0' && !StringTools.contains(str, '.')) { // leading 0, skip if is a",0.9490,38
+"<comp5111.assignment.cut.ToolBox$StringTools: boolean isCreatable(java.lang.String)>","final int start = chars[0] == '-' || chars[0] == '+' ? 1 : 1;",0.9490,38
+"<comp5111.assignment.cut.ToolBox$StringTools: boolean isCreatable(java.lang.String)>","final char[] chars = str.toCharArray();",0.9490,38
+"<comp5111.assignment.cut.ToolBox$StringTools: boolean isCreatable(java.lang.String)>","boolean hasExp = false;",0.9490,38
+"<comp5111.assignment.cut.ToolBox$StringTools: boolean isCreatable(java.lang.String)>","boolean hasDecPoint = false;",0.9490,38
+"<comp5111.assignment.cut.ToolBox$StringTools: boolean isCreatable(java.lang.String)>","boolean foundDigit = false;",0.9490,38
+"<comp5111.assignment.cut.ToolBox$StringTools: boolean isCreatable(java.lang.String)>","boolean allowSigns = false;",0.9490,38
+"<comp5111.assignment.cut.ToolBox$StringTools: boolean isCreatable(java.lang.String)>","if (StringTools.isEmpty(str)) {",0.9437,44
+"<comp5111.assignment.cut.ToolBox$StringTools: boolean isCreatable(java.lang.String)>","} else if (chars[i] == 'e' || chars[i] == 'E') {",0.9331,47
+"<comp5111.assignment.cut.ToolBox$StringTools: boolean isCreatable(java.lang.String)>","} else if (chars[i] == '.') {",0.9331,47
+"<comp5111.assignment.cut.ToolBox$StringTools: boolean isCreatable(java.lang.String)>","} else if (chars[i] == '+' || chars[i] == '-') {",0.9331,47
+"<comp5111.assignment.cut.ToolBox$StringTools: boolean isCreatable(java.lang.String)>","return false;",0.9331,47
+"<comp5111.assignment.cut.ToolBox$StringTools: boolean isCreatable(java.lang.String)>","if (chars[i] >= '0' && chars[i] <= '9') {",0.9331,47
+"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfDifference(java.lang.CharSequence[])>","if (ArrayTools.getLength(css) <= 1) {",0.9178,50
+"<comp5111.assignment.cut.ToolBox$ArrayTools: boolean isEmpty(java.lang.Object[])>","return getLength(array) == 0;",0.9128,51
+"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfAny(java.lang.CharSequence,char[])>","if (searchChars[j] == ch) {",0.8816,55
+"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfAny(java.lang.CharSequence,char[])>","for (int j = 0; j < searchLen; j++) {",0.8816,55
+"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfAny(java.lang.CharSequence,char[])>","for (int i = 0; i < csLen; i++) {",0.8816,55
+"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfAny(java.lang.CharSequence,char[])>","final int searchLen = searchChars.length;",0.8816,55
+"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfAny(java.lang.CharSequence,char[])>","final int searchLast = searchLen - 1;",0.8816,55
+"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfAny(java.lang.CharSequence,char[])>","final int csLen = cs.length();",0.8816,55
+"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfAny(java.lang.CharSequence,char[])>","final int csLast = csLen - 1;",0.8816,55
+"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfAny(java.lang.CharSequence,char[])>","final char ch = cs.charAt(i);",0.8816,55
+"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfAny(java.lang.CharSequence,char[])>","return i;",0.8481,60
+"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfAny(java.lang.CharSequence,char[])>","if (isEmpty(cs) || ArrayTools.isEmpty(searchChars)) {",0.8375,61
+"<comp5111.assignment.cut.ToolBox$StringTools: int indexOfAny(java.lang.CharSequence,char[])>","return INDEX_NOT_FOUND;",0.8171,62
+"<comp5111.assignment.cut.ToolBox$ArrayTools: boolean isEmpty(char[])>","return getLength(array) == 0;",0.7486,63
+"<comp5111.assignment.cut.ToolBox$ArrayTools: int getLength(java.lang.Object)>","return Array.getLength(array);",0.7095,64
+"<comp5111.assignment.cut.ToolBox$StringTools: boolean isEmpty(java.lang.CharSequence)>","return cs == null || cs.length() == 0;",0.7086,65
+"<comp5111.assignment.cut.ToolBox$ArrayTools: int getLength(java.lang.Object)>","if (array == null) {",0.6969,66
+"<comp5111.assignment.cut.ToolBox$CharSequenceTools: char[] toCharArray(java.lang.CharSequence)>","return ((String) source).toCharArray();",0.3918,67
+"<comp5111.assignment.cut.ToolBox$CharSequenceTools: char[] toCharArray(java.lang.CharSequence)>","if (source instanceof String) {",0.3918,67
+"<comp5111.assignment.cut.ToolBox$CharSequenceTools: char[] toCharArray(java.lang.CharSequence)>","if (len == 0) {",0.3661,69
+"<comp5111.assignment.cut.ToolBox$CharSequenceTools: char[] toCharArray(java.lang.CharSequence)>","final int len = StringTools.length(source);",0.3661,69
+"<comp5111.assignment.cut.ToolBox$StringTools: int length(java.lang.CharSequence)>","return cs == null ? 0 : cs.length();",0.2952,71
 "<comp5111.assignment.cut.ToolBox: void <init>()>","public class ToolBox {",0.0000,153
 "<comp5111.assignment.cut.ToolBox$StringTools: void <init>()>","public static class StringTools {",0.0000,153
 "<comp5111.assignment.cut.ToolBox$StringTools: int indexOfDifference(java.lang.CharSequence[])>","return INDEX_NOT_FOUND;",0.0000,153

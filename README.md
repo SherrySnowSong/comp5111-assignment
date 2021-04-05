@@ -34,44 +34,48 @@ high.
 
 The fault reports are in `./faults/`.
 
-### Fault 1428
-Code:
-```java
-if (i < csLast && j < searchLast || Character.isHighSurrogate(ch)) {
+The shell script for retrieving rankings is in `scripts/rankings.sh`.
+This should be run after running `scripts/compile.sh` and `scripts/run.sh`.
+```bash
+#!/usr/bin/env bash
+
+function get_ranking() {
+    grep -r -F "$1" --include="*ochiai*.csv" . | sort | grep -o '[0-9]\+$' | head -n 6 | awk '{ printf "%d, ", $0; sum += $0 } BEGIN { printf "Before refinement: ["} END { printf "\b\b], "; print "Average: " sum / NR }'
+    grep -r -F "$1" --include="*ochiai*.csv" . | sort | grep -o '[0-9]\+$' | tail -n 6 | awk '{ printf "%d, ", $0; sum += $0 } BEGIN { printf "After refinement: ["} END { printf "\b\b], "; print "Average: " sum / NR }'
+}
+
+LINE="if (i < csLast && j < searchLast || Character.isHighSurrogate(ch)) {"
+echo code: \#1428, $LINE
+get_ranking "$LINE"
+echo
+echo code: \#1602, $LINE
+LINE="for (int arrayPos = 1; arrayPos < arrayLen; arrayPos++) {"
+get_ranking "$LINE"
+echo
+echo code: \#1824, $LINE
+LINE="final int start = chars[0] == '-' || chars[0] == '+' ? 1 : 1;"
+get_ranking "$LINE"
 ```
 
-Ranking before adding manual tests: `[10, 13, 5, 28, 32, 27]`, average: 19.2
+Result:
+```
+code: #1428, if (i < csLast && j < searchLast || Character.isHighSurrogate(ch)) {
+Before refinement: [10, 13, 5, 28, 32, 27], Average: 19.1667
+After refinement: [5, 5, 2, 8, 2, 6], Average: 4.66667
 
-Ranking after adding manual tests: `[5, 5, 2, 20, 5, 6]`, average: 7.2
+code: #1602, if (i < csLast && j < searchLast || Character.isHighSurrogate(ch)) {
+Before refinement: [6, 7, 15, 6, 7, 5], Average: 7.66667
+After refinement: [5, 5, 9, 4, 16, 6], Average: 7.5
 
-### Fault 1602
-> Note that another fix at line 1570 is possible:
+code: #1824, for (int arrayPos = 1; arrayPos < arrayLen; arrayPos++) {
+Before refinement: [39, 45, 31, 147, 141, 156], Average: 93.1667
+After refinement: [14, 14, 22, 14, 8, 16], Average: 14.6667
+```
+
+> Note that for fault 1602, another fix at line 1570 is possible:
 > ```diff
 > -            final int arrayLen = css.length - 1;
 > +            final int arrayLen = css.length;
 > ```
 > But the suspicious score of that is lower.
-
-Code:
-```java
-for (int arrayPos = 1; arrayPos < arrayLen; arrayPos++) {
-```
-
-Ranking before adding manual tests: `[6, 7, 15, 6, 7, 5]`, average: 7.7
-
-Ranking after adding manual tests: `[5, 5, 9, 15, 17, 6]`, average: 9.5
-
-The ranking is slightly increased as we optimized other statements' ranking a
-lot, and it is difficult to keep the suspicious score for every statements
-
-### Fault 1824
-Code:
-```java
-final int start = chars[0] == '-' || chars[0] == '+' ? 1 : 1;
-```
-
-Ranking before adding manual tests: `[39, 45, 31, 147, 141, 156]`, average: 93.2
-
-Ranking after adding manual tests: `[14, 14, 22, 7, 6, 16]`, average: 13.2
-
 

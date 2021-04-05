@@ -4157,11 +4157,5 @@ public class Regression_1_Test0 {
         boolean boolean0 = ToolBox.StringTools.isCreatable("0x5");
         assertTrue(boolean0);
     }
-
-    @Test(timeout = 4000)
-    public void l1824Test10() throws Throwable {
-        boolean boolean0 = ToolBox.StringTools.isCreatable("0x6");
-        assertTrue(boolean0);
-    }
 }
 
