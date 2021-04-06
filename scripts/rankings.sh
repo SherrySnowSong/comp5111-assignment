@@ -9,11 +9,11 @@ LINE="if (i < csLast && j < searchLast || Character.isHighSurrogate(ch)) {"
 echo code: \#1428, $LINE
 get_ranking "$LINE"
 echo
-echo code: \#1602, $LINE
 LINE="for (int arrayPos = 1; arrayPos < arrayLen; arrayPos++) {"
+echo code: \#1602, $LINE
 get_ranking "$LINE"
 echo
-echo code: \#1824, $LINE
 LINE="final int start = chars[0] == '-' || chars[0] == '+' ? 1 : 1;"
+echo code: \#1824, $LINE
 get_ranking "$LINE"
 

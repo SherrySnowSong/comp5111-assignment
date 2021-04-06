@@ -26,11 +26,15 @@ calculate the suspicious score for every statement, and dump the result CSV.
 
 ## Task 3
 
-We consider the family of inputs that have different output
-when the faults are present and when they are fixed.
-Then, we just use those inputs as test cases, increase them
-until the ranking of the faulty statements are relatively
-high.
+We consider the family of inputs that have different output when the faults are
+present and when they are fixed.  Then, we just use those inputs as test cases,
+trigger all 3 faults within 1 test case to reduce the number of additional test
+cases, and try to add test cases until all rankings improved.
+
+1 additional test case is added to each of the evosuite generated test suite,
+2~4 additional test cases are added to the randoop generated test suites for
+improving the ranking for each fault. In total, we added 12 test cases.
+(`[1, 1, 1, 3, 2, 4]`)
 
 The fault reports are in `./faults/`.
 
@@ -48,8 +52,8 @@ LINE="if (i < csLast && j < searchLast || Character.isHighSurrogate(ch)) {"
 echo code: \#1428, $LINE
 get_ranking "$LINE"
 echo
-echo code: \#1602, $LINE
 LINE="for (int arrayPos = 1; arrayPos < arrayLen; arrayPos++) {"
+echo code: \#1602, $LINE
 get_ranking "$LINE"
 echo
 echo code: \#1824, $LINE
@@ -61,15 +65,15 @@ Result:
 ```
 code: #1428, if (i < csLast && j < searchLast || Character.isHighSurrogate(ch)) {
 Before refinement: [10, 13, 5, 28, 32, 27], Average: 19.1667
-After refinement: [5, 5, 2, 8, 2, 6], Average: 4.66667
+After refinement: [8, 10, 2, 27, 31, 26], Average: 17.3333
 
-code: #1602, if (i < csLast && j < searchLast || Character.isHighSurrogate(ch)) {
+code: #1602, for (int arrayPos = 1; arrayPos < arrayLen; arrayPos++) {
 Before refinement: [6, 7, 15, 6, 7, 5], Average: 7.66667
-After refinement: [5, 5, 9, 4, 16, 6], Average: 7.5
+After refinement: [4, 4, 11, 3, 3, 3], Average: 4.66667
 
-code: #1824, for (int arrayPos = 1; arrayPos < arrayLen; arrayPos++) {
+code: #1824, final int start = chars[0] == '-' || chars[0] == '+' ? 1 : 1;
 Before refinement: [39, 45, 31, 147, 141, 156], Average: 93.1667
-After refinement: [14, 14, 22, 14, 8, 16], Average: 14.6667
+After refinement: [39, 41, 26, 50, 50, 48], Average: 42.3333
 ```
 
 > Note that for fault 1602, another fix at line 1570 is possible:

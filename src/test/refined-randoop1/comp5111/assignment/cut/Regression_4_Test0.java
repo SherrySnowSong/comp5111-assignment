@@ -4143,125 +4143,46 @@ public class Regression_4_Test0 {
         org.junit.Assert.assertTrue("'" + boolean5 + "' != '" + false + "'", boolean5 == false);
     }
 
-    // 1428
     @Test(timeout = 4000)
-    public void l1428Test0() throws Throwable {
-        char[] array = { '1', '3' };
-        int i = ToolBox.StringTools.indexOfAny("123", array);
-        assertEquals(0, i);
+    public void manualTest0() throws Throwable {
+        {
+          char[] array = {'1', '3'};
+          int i = ToolBox.StringTools.indexOfAny("123", array);
+          // assertEquals(0, i);
+        }
+
+        {
+          CharSequence[] charSequenceArray0 = new CharSequence[2];
+          charSequenceArray0[0] = (CharSequence) " ";
+          charSequenceArray0[1] = (CharSequence) "0";
+          int i = ToolBox.StringTools.indexOfDifference(charSequenceArray0);
+          // assertEquals(0, i);
+        }
+
+        {
+          boolean boolean0 = ToolBox.StringTools.isCreatable("0");
+          assertTrue(boolean0);
+        }
     }
 
     @Test(timeout = 4000)
-    public void l1428Test1() throws Throwable {
-        char[] array = { '1', '3', '2', '3' };
-        int i = ToolBox.StringTools.indexOfAny("123", array);
-        assertEquals(0, i);
-    }
-
-    @Test(timeout = 4000)
-    public void l1428Test2() throws Throwable {
-        char[] array = { '2', '0' };
-        int i = ToolBox.StringTools.indexOfAny("23", array);
-        assertEquals(0, i);
-    }
-
-    @Test(timeout = 4000)
-    public void l1428Test3() throws Throwable {
-        char[] array = { '3', '0' };
-        int i = ToolBox.StringTools.indexOfAny("34", array);
-        assertEquals(0, i);
-    }
-
-    @Test(timeout = 4000)
-    public void l1428Test4() throws Throwable {
-        char[] array = { '4', '0' };
-        int i = ToolBox.StringTools.indexOfAny("45", array);
-        assertEquals(0, i);
-    }
-
-    @Test(timeout = 4000)
-    public void l1428Test5() throws Throwable {
-        char[] array = { '5', '0' };
-        int i = ToolBox.StringTools.indexOfAny("56", array);
-        assertEquals(0, i);
-    }
-
-    @Test(timeout = 4000)
-    public void l1428Test6() throws Throwable {
-        char[] array = { '6', '0' };
-        int i = ToolBox.StringTools.indexOfAny("66", array);
-        assertEquals(0, i);
-    }
-
-    // 1602
-    @Test(timeout = 4000)
-    public void l1602Test0() throws Throwable {
-        CharSequence[] charSequenceArray0 = new CharSequence[2];
-        charSequenceArray0[0] = (CharSequence) " ";
-        charSequenceArray0[1] = (CharSequence) "0";
-        int i = ToolBox.StringTools.indexOfDifference(charSequenceArray0);
-        assertEquals(0, i);
-    }
-
-    // 1824
-    @Test(timeout = 4000)
-    public void l1824Test0() throws Throwable {
-        boolean boolean0 = ToolBox.StringTools.isCreatable("0");
-        assertTrue(boolean0);
-    }
-
-    @Test(timeout = 4000)
-    public void l1824Test1() throws Throwable {
-        boolean boolean0 = ToolBox.StringTools.isCreatable("1");
-        assertTrue(boolean0);
-    }
-
-    @Test(timeout = 4000)
-    public void l1824Test2() throws Throwable {
-        boolean boolean0 = ToolBox.StringTools.isCreatable("2");
-        assertTrue(boolean0);
-    }
-
-    @Test(timeout = 4000)
-    public void l1824Test3() throws Throwable {
-        boolean boolean0 = ToolBox.StringTools.isCreatable("3");
-        assertTrue(boolean0);
-    }
-
-    @Test(timeout = 4000)
-    public void l1824Test4() throws Throwable {
-        boolean boolean0 = ToolBox.StringTools.isCreatable("6"); // 4 collided with above
-        assertTrue(boolean0);
-    }
-
-    @Test(timeout = 4000)
-    public void l1824Test5() throws Throwable {
-        boolean boolean0 = ToolBox.StringTools.isCreatable("0x1");
-        assertTrue(boolean0);
-    }
-
-    @Test(timeout = 4000)
-    public void l1824Test6() throws Throwable {
-        boolean boolean0 = ToolBox.StringTools.isCreatable("0x2");
-        assertTrue(boolean0);
-    }
-
-    @Test(timeout = 4000)
-    public void l1824Test7() throws Throwable {
-        boolean boolean0 = ToolBox.StringTools.isCreatable("0x3");
-        assertTrue(boolean0);
-    }
-
-    @Test(timeout = 4000)
-    public void l1824Test8() throws Throwable {
-        boolean boolean0 = ToolBox.StringTools.isCreatable("0x4");
-        assertTrue(boolean0);
-    }
-
-    @Test(timeout = 4000)
-    public void l1824Test9() throws Throwable {
-        boolean boolean0 = ToolBox.StringTools.isCreatable("0x5");
-        assertTrue(boolean0);
+    public void manualTest1() throws Throwable {
+        {
+          char[] array = {'1', '3', '2', '3'};
+          int i = ToolBox.StringTools.indexOfAny("123", array);
+          // assertEquals(0, i);
+        }
+        {
+          CharSequence[] charSequenceArray0 = new CharSequence[2];
+          charSequenceArray0[0] = (CharSequence) " ";
+          charSequenceArray0[1] = (CharSequence) "1";
+          int i = ToolBox.StringTools.indexOfDifference(charSequenceArray0);
+          // assertEquals(0, i);
+        }
+        {
+          boolean boolean0 = ToolBox.StringTools.isCreatable("1");
+          assertTrue(boolean0);
+        }
     }
 }
 

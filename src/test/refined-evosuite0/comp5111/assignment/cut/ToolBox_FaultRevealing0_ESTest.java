@@ -987,160 +987,25 @@ public class ToolBox_FaultRevealing0_ESTest extends ToolBox_FaultRevealing0_ESTe
       ToolBox toolBox0 = new ToolBox();
   }
 
-  // 1428
   @Test(timeout = 4000)
-  public void l1428Test0() throws Throwable {
+  public void manualTest0() throws Throwable {
+    {
       char[] array = {'1', '3'};
       int i = ToolBox.StringTools.indexOfAny("123", array);
-      assertEquals(0, i);
-  }
+      // assertEquals(0, i);
+    }
 
-  @Test(timeout = 4000)
-  public void l1428Test1() throws Throwable {
-      char[] array = {'1', '3', '2', '3'};
-      int i = ToolBox.StringTools.indexOfAny("123", array);
-      assertEquals(0, i);
-  }
-
-  @Test(timeout = 4000)
-  public void l1428Test2() throws Throwable {
-      char[] array = {'2', '0'};
-      int i = ToolBox.StringTools.indexOfAny("23", array);
-      assertEquals(0, i);
-  }
-
-  @Test(timeout = 4000)
-  public void l1428Test3() throws Throwable {
-      char[] array = {'3', '0'};
-      int i = ToolBox.StringTools.indexOfAny("34", array);
-      assertEquals(0, i);
-  }
-
-  @Test(timeout = 4000)
-  public void l1428Test4() throws Throwable {
-      char[] array = {'4', '0'};
-      int i = ToolBox.StringTools.indexOfAny("45", array);
-      assertEquals(0, i);
-  }
-
-  @Test(timeout = 4000)
-  public void l1428Test5() throws Throwable {
-      char[] array = {'5', '0'};
-      int i = ToolBox.StringTools.indexOfAny("56", array);
-      assertEquals(0, i);
-  }
-
-  // 1602
-  @Test(timeout = 4000)
-  public void l1602Test0() throws Throwable {
+    {
       CharSequence[] charSequenceArray0 = new CharSequence[2];
       charSequenceArray0[0] = (CharSequence) " ";
       charSequenceArray0[1] = (CharSequence) "0";
       int i = ToolBox.StringTools.indexOfDifference(charSequenceArray0);
-      assertEquals(0, i);
-  }
+      // assertEquals(0, i);
+    }
 
-  @Test(timeout = 4000)
-  public void l1602Test1() throws Throwable {
-      CharSequence[] charSequenceArray0 = new CharSequence[2];
-      charSequenceArray0[0] = (CharSequence) " ";
-      charSequenceArray0[1] = (CharSequence) "1";
-      int i = ToolBox.StringTools.indexOfDifference(charSequenceArray0);
-      assertEquals(0, i);
-  }
-
-  @Test(timeout = 4000)
-  public void l1602Test2() throws Throwable {
-      CharSequence[] charSequenceArray0 = new CharSequence[2];
-      charSequenceArray0[0] = (CharSequence) " ";
-      charSequenceArray0[1] = (CharSequence) "2";
-      int i = ToolBox.StringTools.indexOfDifference(charSequenceArray0);
-      assertEquals(0, i);
-  }
-
-  @Test(timeout = 4000)
-  public void l1602Test3() throws Throwable {
-      CharSequence[] charSequenceArray0 = new CharSequence[2];
-      charSequenceArray0[0] = (CharSequence) " ";
-      charSequenceArray0[1] = (CharSequence) "3";
-      int i = ToolBox.StringTools.indexOfDifference(charSequenceArray0);
-      assertEquals(0, i);
-  }
-
-  @Test(timeout = 4000)
-  public void l1602Test4() throws Throwable {
-      CharSequence[] charSequenceArray0 = new CharSequence[2];
-      charSequenceArray0[0] = (CharSequence) " ";
-      charSequenceArray0[1] = (CharSequence) "4";
-      int i = ToolBox.StringTools.indexOfDifference(charSequenceArray0);
-      assertEquals(0, i);
-  }
-
-  @Test(timeout = 4000)
-  public void l1602Test5() throws Throwable {
-      CharSequence[] charSequenceArray0 = new CharSequence[2];
-      charSequenceArray0[0] = (CharSequence) " ";
-      charSequenceArray0[1] = (CharSequence) "5";
-      int i = ToolBox.StringTools.indexOfDifference(charSequenceArray0);
-      assertEquals(0, i);
-  }
-
-  @Test(timeout = 4000)
-  public void l1602Test6() throws Throwable {
-      CharSequence[] charSequenceArray0 = new CharSequence[3];
-      charSequenceArray0[0] = (CharSequence) " 2";
-      charSequenceArray0[1] = (CharSequence) " 1";
-      charSequenceArray0[2] = (CharSequence) " 1";
-      int i = ToolBox.StringTools.indexOfDifference(charSequenceArray0);
-      assertEquals(1, i);
-  }
-
-  // 1824
-  @Test(timeout = 4000)
-  public void l1824Test0() throws Throwable {
+    {
       boolean boolean0 = ToolBox.StringTools.isCreatable("0");
       assertTrue(boolean0);
-  }
-
-  @Test(timeout = 4000)
-  public void l1824Test1() throws Throwable {
-      boolean boolean0 = ToolBox.StringTools.isCreatable("1");
-      assertTrue(boolean0);
-  }
-
-  @Test(timeout = 4000)
-  public void l1824Test2() throws Throwable {
-      boolean boolean0 = ToolBox.StringTools.isCreatable("2");
-      assertTrue(boolean0);
-  }
-
-  @Test(timeout = 4000)
-  public void l1824Test3() throws Throwable {
-      boolean boolean0 = ToolBox.StringTools.isCreatable("3");
-      assertTrue(boolean0);
-  }
-
-  @Test(timeout = 4000)
-  public void l1824Test4() throws Throwable {
-      boolean boolean0 = ToolBox.StringTools.isCreatable("4");
-      assertTrue(boolean0);
-  }
-
-  @Test(timeout = 4000)
-  public void l1824Test5() throws Throwable {
-      boolean boolean0 = ToolBox.StringTools.isCreatable("0x1");
-      assertTrue(boolean0);
-  }
-
-  @Test(timeout = 4000)
-  public void l1824Test6() throws Throwable {
-      boolean boolean0 = ToolBox.StringTools.isCreatable("0x2");
-      assertTrue(boolean0);
-  }
-
-  @Test(timeout = 4000)
-  public void l1824Test7() throws Throwable {
-      boolean boolean0 = ToolBox.StringTools.isCreatable("0x3");
-      assertTrue(boolean0);
+    }
   }
 }
